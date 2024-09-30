@@ -7,4 +7,11 @@ from rest_framework import generics
 
 class ItemCreateView(generics.CreateAPIView):
     queryset = Item.objects.all()
-    serializer
+    serializer = ItemSerialzer
+    permission_classes = [IsAuthenticated]
+
+
+class ItemDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Item.objects.all()
+    serializer = ItemSerialzer
+    permission_classes = [IsAuthenticated]
