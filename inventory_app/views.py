@@ -31,3 +31,8 @@ class ItemDetailView(generics.RetrieveUpdateDestroyAPIView):
             response = super().get(request, *args, **kwargs)
             cache.get(cache_key, response.data, timeout=60*10)
             return response
+
+
+class ItemListView(generics.ListAPIView):
+    queryset = Item.objects.all()
+    serializer_class = ItemSerialzer
