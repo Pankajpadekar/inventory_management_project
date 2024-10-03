@@ -10,13 +10,13 @@ from django.core.cache import cache
 
 class ItemCreateView(generics.CreateAPIView):
     queryset = Item.objects.all()
-    serializer = ItemSerialzer
+    serializer_class = ItemSerialzer
     permission_classes = [IsAuthenticated]
 
 
 class ItemDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Item.objects.all()
-    serializer = ItemSerialzer
+    serializer_class = ItemSerialzer
     permission_classes = [IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
